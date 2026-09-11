@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Royalty and Ideology - the base game's own darklight fires.
+
+  All three defs are unchanged in 1.6 and were read out of the game's Data folder:
+
+    Darktorch, DarktorchFungus   Data/Ideology/Defs/ThingDefs_Buildings/Buildings_Ideo.xml
+    DarklightBrazier             Data/Royalty/Defs/ThingDefs_Buildings/Buildings_Furniture.xml
+
+  All three carry <comps Inherit="False">, which the xpath below matches: an xpath step names the
+  element, and attributes on it do not enter into that. Inherit="False" matters for a different
+  reason - it means the comps list on these defs is theirs alone and not merged with the parent's,
+  so an appended <li> stays where it is put.
+
+  Nothing here is guarded on the DLC being present. A DLC that is not owned contributes no defs,
+  the conditional finds nothing, and the operation is skipped.
+
+  Every conditional also carries [not(comps/li[@Class="Flecker.CompProperties_Smoker"])].
+  Patches apply in mod load order and this mod loads after Simple FX: Smoke, so its comps are
+  already in the document when these run. If it ever adds one of these buildings to its own
+  patches, the operation here stands down instead of adding a second comp and doubling the
+  smoke - a collision a defName test cannot see, because the def exists either way.
+-->
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Darktorch"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Darktorch"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_Vapor</fleckDef>
+          <particleSize>0.4</particleSize>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="DarktorchFungus"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="DarktorchFungus"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_Vapor</fleckDef>
+          <particleSize>0.4</particleSize>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="DarklightBrazier"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="DarklightBrazier"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1.5</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

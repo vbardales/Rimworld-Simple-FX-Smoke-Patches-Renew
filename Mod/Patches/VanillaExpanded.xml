@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Vanilla Expanded. This is the file the port changed.
+
+  MysticFelines wrote it against six Vanilla Expanded mods. Three of them cannot load in 1.6:
+
+    Vanilla Factions Expanded - Ancients   VanillaExpanded.VFEA
+        last updated 27 May 2025, tagged 1.3/1.4/1.5, no 1.6 folder on disk.
+        VFEA_AncientChemfuelPoweredGenerator and VFEA_FueledMendingStation exist nowhere else.
+        Both operations dropped.
+
+    [1.4] Vanilla Factions Expanded - Medieval   OskarPotocki.VanillaFactionsExpanded.MedievalModule
+        The Workshop title now begins with the version, which is how the Vanilla Expanded team
+        marks a module it has stopped. Its content moved to Medieval 2, where the only lit
+        furniture is the hearth and its darklight twin - the candle and the wall torch lamp did
+        not make the move. VFEM_Candle and VFEM_WallTorchLamp dropped.
+
+    Vanilla Expanded - Royalty Patches / Ideology Patches
+        last updated 8 March 2024, tagged up to 1.4. These defined VFEM_DarkCandle,
+        VFEM_WallTorchDarkLamp and VFEV_DarkHearth - the darklight variants of Medieval's and
+        Vikings' furniture. The first two are gone with Medieval 1. The third has a successor,
+        below.
+
+  One retarget. VFEV_DarkHearth was the Ideology twin of the Vikings hearth, and [1.4] Vanilla
+  Factions Expanded - Vikings is dead too. Both hearths were folded into Medieval 2, where the
+  plain one is VFEM2_Hearth and the darklight one VFEM2_HearthDarklight, carrying the same
+  refuelable / glower / heat pusher comps it had as VFEV_DarkHearth. The operation follows it
+  there, keeping MysticFelines' particleSize and gaining one field - an indoorAlt, one of the
+  three this file adds; see the note on the operation itself. VFEM2_HearthDarklight
+  sits behind Medieval 2's
+  Ideology load folder, so it is absent without the DLC - which the conditional handles, the same
+  way it handles Medieval 2 not being installed at all.
+
+  One typo removed. The source had two operations for the Medieval dark candle, one of which
+  tested for VVFEM_DarkCandle - two Vs - while adding to VFEM_DarkCandle. PatchOperationConditional
+  runs <match> only when its own xpath matches, so that operation had never fired since it was
+  written. It is moot now, since the def it aimed at is gone either way, but it is worth recording
+  that it was dead on arrival rather than killed by 1.6.
+
+  Two survive unchanged, both verified against 1.6 defs on disk:
+
+    VFEC_HeatStones, VFEC_WoodFiredCrematorium   Vanilla Factions Expanded - Classical, 1.6
+    Stone_DarklightCampfire                      Vanilla Furniture Expanded, 1.6/Mods/Ideology
+
+  The last one was filed under "VE Ideology Patches + VFE Core" in the source. It is neither: it
+  is Vanilla Furniture Expanded's own dark firepit, in the folder its loadfolders.xml loads with
+  IfModActive="Ludeon.RimWorld.Ideology". The mod is alive and the def is unchanged, so the
+  operation stands as written - only the comment was wrong.
+
+  Every conditional also carries [not(comps/li[@Class="Flecker.CompProperties_Smoker"])].
+  Patches apply in mod load order and this mod loads after Simple FX: Smoke, so its comps are
+  already in the document when these run. If it ever adds one of these buildings to its own
+  patches, the operation here stands down instead of adding a second comp and doubling the
+  smoke - a collision a defName test cannot see, because the def exists either way.
+-->
+<Patch>
+
+  <!-- Vanilla Factions Expanded - Classical -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="VFEC_HeatStones"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="VFEC_HeatStones"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_SmokeIndoors</fleckDef>
+          <particleSize>1</particleSize>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- indoorAlt added; MysticFelines left it off. Simple FX: Smoke's own ElectricCrematorium has
+       exactly this shape - billsOnly, particleSize 1 - and carries indoorAlt, and so does the
+       chemfuel crematorium in this mod's own Appliances Expanded file. Not unanimous, in
+       fairness: upstream's CoalCrematorium has none either. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="VFEC_WoodFiredCrematorium"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="VFEC_WoodFiredCrematorium"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <billsOnly>true</billsOnly>
+          <particleSize>1</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Vanilla Factions Expanded - Medieval 2.
+
+       New coverage, and the one place this mod goes beyond MysticFelines' list. Simple FX: Smoke
+       patches VFEV_Hearth, the Vikings hearth - a defName that cannot exist in 1.6, because
+       [1.4] Vanilla Factions Expanded - Vikings does not load there. It did not follow the
+       building into Medieval 2, so VFEM2_Hearth is covered by nobody, while its darklight twin
+       below is covered here. A player with Medieval 2 and Ideology would see one hearth smoke
+       and the other not.
+
+       The values are the upstream ones for VFEV_Hearth, read out of Simple FX: Smoke's own
+       AddSmokeVE.xml, not invented: particleSize 1.5 and indoorAlt Owl_SmokeIndoors. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="VFEM2_Hearth"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="VFEM2_Hearth"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1.5</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Vanilla Factions Expanded - Medieval 2, with Ideology.
+       Was VFEV_DarkHearth in [1.4] Vanilla Factions Expanded - Vikings.
+
+       indoorAlt added; MysticFelines gave this operation particleSize 1.5 and no indoorAlt. The
+       two hearths are the same building in two variants, they sit indoors, and without it this
+       one kept the heavy outdoor fleck in a room while its plain twin switched to the light
+       indoor one. Owlchemist made the same call on the same building: VFEV_Hearth carries
+       indoorAlt in Simple FX: Smoke's own file, and so does MysticFelines' own DarklightBrazier.
+
+       This is one of THREE values in this mod that are not as their author left them - the other
+       two are on VFEC_WoodFiredCrematorium and Stone_DarklightCampfire above and below. All
+       three are the same field for the same reason. Tabulating the twenty operations shows the
+       rule MysticFelines follows: indoorAlt goes with the default heavy Smoke fleck, and is left
+       off wherever fleckDef is already Owl_Vapor, which needs no lighter indoor variant.
+
+       Three operations sit outside that rule and are RIGHT to. BurnPit uses the heavy fleck with
+       no indoorAlt, but a burn pit is an outdoor building with nothing indoors to switch to.
+       VFEC_HeatStones sets Owl_SmokeIndoors as its main fleckDef - the indoor form is the only
+       form it ever uses, so an alternate would be pointless. CA_ChemfuelTurbine uses
+       Owl_SmokeHeavy, whose indoor twin is Owl_SmokeHeavyIndoors rather than Owl_SmokeIndoors:
+       a real fourth candidate, but it needs a different value from these three, it was not part
+       of what was asked, and it is left alone rather than guessed at. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="VFEM2_HearthDarklight"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="VFEM2_HearthDarklight"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1.5</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Vanilla Furniture Expanded, with Ideology.
+
+       indoorAlt added; MysticFelines left it off. This is the hearth case again, and the clearest
+       of the three: Stone_DarklightCampfire is the Ideology twin of Stone_Campfire, which Simple
+       FX: Smoke patches with particleSize 1.5 AND indoorAlt Owl_SmokeIndoors - the same size, one
+       field more. So did vanilla's own Campfire. The two firepits sit side by side in the same
+       build menu and had no reason to smoke differently indoors. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Stone_DarklightCampfire"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Stone_DarklightCampfire"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1.5</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

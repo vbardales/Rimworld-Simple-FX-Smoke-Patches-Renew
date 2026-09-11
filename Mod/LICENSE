@@ -1,0 +1,60 @@
+MIT License
+
+Copyright (c) 2026 nelim
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+---------------------------------------------------------------------------
+SCOPE OF THE ABOVE
+
+The MIT licence above covers only what the 1.6 port added, which here is a
+small part of the shipped files:
+
+  - the editing of the six patch files: seven dead targets removed, one
+    followed into Vanilla Factions Expanded - Medieval 2, one operation that
+    had never matched anything removed, two comments corrected, the files
+    renamed after the mod each one targets
+  - the packaging and the documentation
+
+There is no assembly and no source code in this mod. It is XML only.
+
+IT DOES NOT COVER THE ORIGINAL MOD, AND THE ORIGINAL MOD IS MOST OF WHAT IS
+HERE. The choice of buildings to patch and every particle value on them - the
+sizes, the fleck defs, the per-rotation offsets, which buildings smoke only
+while a bill is running - are MysticFelines':
+
+  https://steamcommunity.com/sharedfiles/filedetails/?id=2819074837
+
+Not one of those numbers was retuned. Three operations gained one field, an
+indoorAlt of Owl_SmokeIndoors - on the darklight hearth, the dark firepit and
+the wood-fired crematorium - which applies MysticFelines' own rule to the three
+places she had applied it inconsistently. No value was altered anywhere.
+
+The whole of this mod is that judgement; the port is only the work of finding
+out which of those buildings still exist in 1.6.
+
+They never declared a licence for it, so none is granted here and none can be.
+It is redistributed under the usual practice for abandoned mods - explicit
+credit, a link to the original, and removal on request.
+
+If MysticFelines asks for this to be taken down, it comes down. Immediately,
+and without discussion.
+
+ATTRIBUTION.md records what was taken and what was changed.

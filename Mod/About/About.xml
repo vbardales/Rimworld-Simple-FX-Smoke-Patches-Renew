@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Simple FX: Smoke Patches Renew</name>
+  <author>MysticFelines - 1.6 port: nelim</author>
+  <packageId>nelim.simplefxsmokepatches</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <url>https://github.com/vbardales/Rimworld-Simple-FX-Smoke-Patches-Renew</url>
+  <description>A 1.6 port of MysticFelines' Simple FX: Smoke Patches. I am not the author of this mod; the work here is what it took to make it run on 1.6, and to say plainly which of its patches no longer have anything to patch.
+
+Simple FX: Smoke, by Owlchemist and Mlie and continued by FerrisCG, puts smoke and steam over fires, stoves and generators. It covers the base game and a handful of mods. This adds the buildings it does not reach. Checked def by def: no defName in common between the two.
+
+WHAT IT COVERS
+
+Dubs Bad Hygiene: the burn pit.
+
+Appliances Expanded: the chemfuel crematorium, smelter, smithy and turbine, the wood-fired turbine, and the chemfuel stove. With Vanilla Furniture Expanded - Production as well, the large chemfuel stove and the large fueled smithy.
+
+Royalty and Ideology: the darklight brazier, the darktorch and the fungus darktorch.
+
+Helixien Gas Brazier: both braziers.
+
+Simple Utilities: Wall: the fencepost torch lamp.
+
+Vanilla Factions Expanded - Classical: the heat stones and the wood-fired crematorium. Vanilla Factions Expanded - Medieval 2: the hearth, and the darklight hearth with Ideology. Vanilla Furniture Expanded with Ideology: the dark firepit.
+
+None of them is required. Every operation is conditioned on the building's own def existing, so a mod you do not have is skipped in silence, and so is a building that mod has since renamed.
+
+Each operation also stands down if Simple FX: Smoke has already covered that building itself. Nothing here overlaps it today, checked def by def; the guard is there so that a future update to it cannot make the two mods add the same effect twice.
+
+WHAT CHANGED IN THE 1.6 PORT
+
+The comp it adds is unchanged. Simple FX: Smoke renamed its assembly from Flecker.dll to simplefxsmoke.dll in 1.4, but not its namespace: Flecker.CompProperties_Smoker is still what its own 1.6 patches use, and every field this mod sets still exists on that class.
+
+Seven of the original twenty-six targets are gone, in three mods that stop before 1.6. Vanilla Factions Expanded - Ancients was last updated in May 2025 and is tagged 1.5; its chemfuel generator and fueled mending station have no successor. Vanilla Factions Expanded - Medieval and Vanilla Expanded - Royalty Patches are both retitled to their last version on the Workshop; the medieval candle and wall torch lamp, and their darklight variants, did not survive into Medieval 2.
+
+One was retargeted. The Vikings darklight hearth is now Medieval 2's VFEM2_HearthDarklight, with the same comps, so the patch follows it there.
+
+One had never worked. The medieval dark candle had two operations, and the second tested for VVFEM_DarkCandle - two Vs - so it had matched nothing since the day it was written. Moot now, but recorded.
+
+One building was added. Simple FX: Smoke still patches the Vikings hearth, a building that cannot exist in 1.6, and it did not follow it into Medieval 2 - so the plain hearth there smoked for nobody while its darklight twin smoked here. It is covered now, with the values Simple FX: Smoke used on the Vikings hearth rather than invented ones.
+
+The eighteen that remain were read out of the current 1.6 builds of the mods concerned, one at a time. No value was altered anywhere. Three operations gained one field - an indoorAlt, which tells the smoke to use its lighter indoor form in a room. MysticFelines pairs that field with the heavy fleck everywhere except on the darklight hearth, the dark firepit and the wood-fired crematorium, whose plain counterparts all have it; those three now match.
+
+REQUIREMENTS
+
+Simple FX: Smoke. Without it the comp class does not exist and nothing here can apply.
+
+Safe to add to a save, and safe to remove from one. It adds no thing and no def, only a graphical comp to buildings that already exist.
+
+IF I GO QUIET
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+AI-GENERATED
+
+This port was done with Claude Code (Anthropic) under human direction, review and testing. Stated openly: working with these tools is my job.
+
+THANKS
+
+MysticFelines, who chose the buildings and tuned every particle in this mod. Owlchemist and Mlie for Simple FX: Smoke, Owlchemist for Simple Utilities: Wall, and FerrisCG for continuing Simple FX: Smoke into 1.6 - without which none of this loads. Dubwise for Dubs Bad Hygiene, Scorpio for Appliances Expanded, CiXwOw for the Helixien Gas Brazier, Oskar Potocki and the Vanilla Expanded team.
+
+Source, changelog and attribution: https://github.com/vbardales/Rimworld-Simple-FX-Smoke-Patches-Renew</description>
+  <modDependencies>
+    <li>
+      <packageId>Owlchemist.SimpleFX.Smoke2</packageId>
+      <displayName>Simple FX: Smoke Continued</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3261314247</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>Owlchemist.SimpleFX.Smoke2</li>
+    <li>Dubwise.DubsBadHygiene</li>
+    <li>scpchemfuel.appliances</li>
+    <li>VanillaExpanded.VFEProduction</li>
+    <li>CiXwOw.HelixienBrazier</li>
+    <li>Owlchemist.WallUtilities</li>
+    <li>OskarPotocki.VFE.Classical</li>
+    <li>OskarPotocki.VFE.Medieval2</li>
+    <li>VanillaExpanded.VFECore</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>MysticFelines.SimpleFX.Smoke2.Patches</li>
+  </incompatibleWith>
+</ModMetaData>

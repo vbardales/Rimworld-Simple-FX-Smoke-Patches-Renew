@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Appliances Expanded (scpchemfuel.appliances) - alive, declares 1.6.
+
+  All eight defNames were read out of its 1.6 folder and all eight still exist. Two of them,
+  CA_ChemfuelStoveLarge and CE_FueledSmithyLarge, live in 1.6/VFE_Production, which its
+  loadFolders.xml loads only with IfModActive="VanillaExpanded.VFEProduction" - so those two
+  operations do nothing for a player who has Appliances Expanded but not Vanilla Furniture
+  Expanded - Production. That is the reason every operation here is wrapped in a
+  PatchOperationConditional on the def rather than guarded by the mod's packageId: the def is
+  what the patch needs, and one packageId does not predict it.
+
+  A PatchOperationAdd whose xpath matches nothing fails and is logged by name. The conditional
+  turns that into a silent skip. Every target was also checked to carry a <comps> element of its
+  own - PatchOperationAdd appends to a node that must already exist in the XML, and inheritance
+  has not run yet when patches are applied.
+
+  Values are MysticFelines' throughout; nothing here was retuned.
+
+  Every conditional also carries [not(comps/li[@Class="Flecker.CompProperties_Smoker"])].
+  Patches apply in mod load order and this mod loads after Simple FX: Smoke, so its comps are
+  already in the document when these run. If it ever adds one of these buildings to its own
+  patches, the operation here stands down instead of adding a second comp and doubling the
+  smoke - a collision a defName test cannot see, because the def exists either way.
+-->
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CA_ChemfuelCrematorium"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CA_ChemfuelCrematorium"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <billsOnly>true</billsOnly>
+          <particleSize>1</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CA_ChemfuelSmithy"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CA_ChemfuelSmithy"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <billsOnly>true</billsOnly>
+          <particleSize>1</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CA_ChemfuelSmelter"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CA_ChemfuelSmelter"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <billsOnly>true</billsOnly>
+          <particleSize>1</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CA_WoodFiredTurbine"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CA_WoodFiredTurbine"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1</particleSize>
+          <particleOffset>(-0.5,0,-1)</particleOffset>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CA_ChemfuelTurbine"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CA_ChemfuelTurbine"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_SmokeHeavy</fleckDef>
+          <particleSize>1</particleSize>
+          <particleOffset>(-0.5,0,-1)</particleOffset>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CE_ChemfuelStove"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CE_ChemfuelStove"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_Vapor</fleckDef>
+          <billsOnly>true</billsOnly>
+          <particleSize>0.66</particleSize>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- The next two are in Appliances Expanded's VFE_Production folder: present only when
+       Vanilla Furniture Expanded - Production is installed as well. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CA_ChemfuelStoveLarge"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CA_ChemfuelStoveLarge"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_Vapor</fleckDef>
+          <billsOnly>true</billsOnly>
+          <particleSize>0.66</particleSize>
+          <particleOffset>(0.0,0,0)</particleOffset>
+          <particleOffsetEast>(0.2,0,0.1)</particleOffsetEast>
+          <particleOffsetNorth>(0.3,0,-0.1)</particleOffsetNorth>
+          <particleOffsetSouth>(-0.3,0,0.1)</particleOffsetSouth>
+          <particleOffsetWest>(0.3,0,0.1)</particleOffsetWest>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="CE_FueledSmithyLarge"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="CE_FueledSmithyLarge"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_Vapor</fleckDef>
+          <billsOnly>true</billsOnly>
+          <particleSize>0.66</particleSize>
+          <particleOffset>(0.0,0,0)</particleOffset>
+          <particleOffsetEast>(0.2,0,0.1)</particleOffsetEast>
+          <particleOffsetNorth>(0,0,-0.25)</particleOffsetNorth>
+          <particleOffsetSouth>(0,0,0.25)</particleOffsetSouth>
+          <particleOffsetWest>(-0.2,0,0.1)</particleOffsetWest>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

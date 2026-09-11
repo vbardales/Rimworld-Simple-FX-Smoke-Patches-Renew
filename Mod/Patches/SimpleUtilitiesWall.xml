@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Simple Utilities: Wall (Owlchemist.WallUtilities) - alive, declares 1.5 and 1.6.
+
+  Owl_Fencepost_TorchLamp is in 1.6/Defs/ThingDefs_Buildings/Fencepost_Lights.xml, unchanged,
+  and still has its own <comps>.
+
+  MysticFelines' file carried the comment "Ideology" over this operation, copied from the file
+  next to it. The fencepost torch has nothing to do with Ideology; the comment is dropped rather
+  than corrected in place, since it was never describing this patch.
+
+  Every conditional also carries [not(comps/li[@Class="Flecker.CompProperties_Smoker"])].
+  Patches apply in mod load order and this mod loads after Simple FX: Smoke, so its comps are
+  already in the document when these run. If it ever adds one of these buildings to its own
+  patches, the operation here stands down instead of adding a second comp and doubling the
+  smoke - a collision a defName test cannot see, because the def exists either way.
+-->
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Owl_Fencepost_TorchLamp"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Owl_Fencepost_TorchLamp"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <fleckDef>Owl_Vapor</fleckDef>
+          <particleSize>0.4</particleSize>
+          <particleOffset>(0,0,0.6)</particleOffset>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

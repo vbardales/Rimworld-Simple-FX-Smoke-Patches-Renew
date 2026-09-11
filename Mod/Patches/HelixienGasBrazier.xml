@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Helixien Gas Brazier (CiXwOw.HelixienBrazier) - alive.
+
+  This one needed checking rather than assuming. Its GitHub repository stops at a 1.5 folder and
+  was last pushed in October 2024, which reads as dead; the Workshop item is not. Item 2770815124
+  carries the 1.6 tag and was last updated on 30 August 2025, after 1.6 shipped. The Steam build
+  is ahead of the repository.
+
+  So the two defNames below were read out of the 1.5 defs on GitHub rather than out of a 1.6
+  copy - the mod is not installed here, and Steam does not hand out files for an item you are not
+  subscribed to. That is the one place in this port where a target could not be verified against
+  the build a player would actually load. If CiXwOw renamed the braziers in the 1.6 update, the
+  conditional below finds no def and skips, which is the failure this design is for.
+
+  Every conditional also carries [not(comps/li[@Class="Flecker.CompProperties_Smoker"])].
+  Patches apply in mod load order and this mod loads after Simple FX: Smoke, so its comps are
+  already in the document when these run. If it ever adds one of these buildings to its own
+  patches, the operation here stands down instead of adding a second comp and doubling the
+  smoke - a collision a defName test cannot see, because the def exists either way.
+-->
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="HelixienGasBrazier"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="HelixienGasBrazier"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1.5</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="HelixienGasDarklightBrazier"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="HelixienGasDarklightBrazier"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1.5</particleSize>
+          <indoorAlt>Owl_SmokeIndoors</indoorAlt>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

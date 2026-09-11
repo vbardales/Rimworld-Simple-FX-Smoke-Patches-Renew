@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Dubs Bad Hygiene (Dubwise.DubsBadHygiene) - alive, ships a 1.6 folder.
+
+  BurnPit is still there, in 1.6/Defs/ThingDefs_Buildings/BuildingsB_Hygiene.xml, and still has
+  a <comps> element of its own. Note that Dubs Bad Hygiene also declares a PollutionTypeDef
+  called BurnPit; the xpath below is scoped to ThingDef, so the two do not collide.
+
+  Every conditional also carries [not(comps/li[@Class="Flecker.CompProperties_Smoker"])].
+  Patches apply in mod load order and this mod loads after Simple FX: Smoke, so its comps are
+  already in the document when these run. If it ever adds one of these buildings to its own
+  patches, the operation here stands down instead of adding a second comp and doubling the
+  smoke - a collision a defName test cannot see, because the def exists either way.
+-->
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="BurnPit"][not(comps/li[@Class="Flecker.CompProperties_Smoker"])]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="BurnPit"]/comps</xpath>
+      <value>
+        <li Class="Flecker.CompProperties_Smoker">
+          <particleSize>1.5</particleSize>
+        </li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
