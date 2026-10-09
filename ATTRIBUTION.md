@@ -19,7 +19,7 @@ ban on redistribution turned out to be a sentence in its description and nowhere
 
 This is the usual convention for ports on the RimWorld Workshop: republished with **credit by
 name** and **removal on request, without argument**. The `<author>` field reads
-`MysticFelines - 1.6 port: nelim`, and the removal clause is in the description.
+`MysticFelines - 1.6 adapted by Nelim`, and the removal clause is in the description.
 
 The mod is XML only — six patch files, no assembly, nothing decompiled.
 
