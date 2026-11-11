@@ -18,7 +18,6 @@ workshop: 3811405107
 published: no
 tested_on: never
 remaining:
-  - "2026-11-12: unverified 1.a no duplicate search done (Search-Workshop, ask Virginie first)"
   - "2026-11-12: defect 1.d silent licence: add (unofficial) to About name and README title, UNOFFICIAL paragraph at top of description"
   - "2026-11-12: unverified 1.g LICENSE is MIT (c) Nelim over third-party content with silent licence: check against 1.b"
   - "2026-11-12: unverified never seen running"
