@@ -1,5 +1,5 @@
 ---
-mod: Simple FX: Smoke Patches Renew
+mod: Simple FX: Smoke Patches Renew (unofficial)
 packageId: nelim.simplefxsmokepatches
 repo: Rimworld-Simple-FX-Smoke-Patches-Renew
 remote: https://github.com/vbardales/Rimworld-Simple-FX-Smoke-Patches-Renew.git
@@ -18,14 +18,13 @@ workshop: 3811405107
 published: no
 tested_on: never
 remaining:
-  - "2026-11-12: defect 1.d silent licence: add (unofficial) to About name and README title, UNOFFICIAL paragraph at top of description"
   - "2026-11-12: unverified 1.g LICENSE is MIT (c) Nelim over third-party content with silent licence: check against 1.b"
   - "2026-11-12: unverified never seen running"
 protocols_read_sha: 43141970cc4343ff3dc2f3d79e5c3f5f9eed1922
 updated: 2026-11-12
 ---
 
-# Simple FX: Smoke Patches Renew — status
+# Simple FX: Smoke Patches Renew (unofficial): status
 
 Read by a sweep across every mod, rather than by asking each thread in turn. It lives at the
 root, never inside `Mod/`, so Steam never receives it.

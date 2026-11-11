@@ -1,4 +1,4 @@
-# Simple FX: Smoke Patches Renew
+# Simple FX: Smoke Patches Renew (unofficial)
 
 Port of **MysticFelines' Simple FX: Smoke Patches** to RimWorld 1.6.
 
