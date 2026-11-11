@@ -20,7 +20,6 @@ tested_on: never
 remaining:
   - "2026-11-12: unverified 1.a no duplicate search done (Search-Workshop, ask Virginie first)"
   - "2026-11-12: defect 1.d silent licence: add (unofficial) to About name and README title, UNOFFICIAL paragraph at top of description"
-  - "2026-11-12: defect 1.f/1.i origin added, but remote history (one Initialise commit) is unrelated to local history: decide merge or replace, then push"
   - "2026-11-12: unverified 1.g LICENSE is MIT (c) Nelim over third-party content with silent licence: check against 1.b"
   - "2026-11-12: unverified never seen running"
 protocols_read_sha: 43141970cc4343ff3dc2f3d79e5c3f5f9eed1922
