@@ -1,23 +1,30 @@
 ---
+mod: Simple FX: Smoke Patches Renew
+packageId: nelim.simplefxsmokepatches
+repo: Rimworld-Simple-FX-Smoke-Patches-Renew
+remote: https://github.com/vbardales/Rimworld-Simple-FX-Smoke-Patches-Renew.git
+visibility: public
+detached: no
+workflow_stage: setupRepo
+licence: silent
+licence_at: "2026-09-12: no licence at the four places one could be (files, About.xml, url, Steam description); source dead since 1.5"
+upstream_mod_remotes: N/A
+settings_audit: unchecked
 localization: unchecked
 translation_en: unchecked
 translation_fr: unchecked
-mod:          Simple FX: Smoke Patches Renew
-packageId:    nelim.simplefxsmokepatches
-repo:         Rimworld-Simple-FX-Smoke-Patches-Renew
-visibility:   public
-detached:     no
-stage:
-licence:      silent
-licence_at:   four places; the whole mod is eight files
 dependencies: declared
-showcase:     none
-tested_on:
-workshop:
+workshop: 3811405107
+published: no
+tested_on: never
 remaining:
-  - unverified: never seen running
-session:      maj:        2026-09-12, releve automatique
-updated:      2026-09-12, automatic sweep
+  - "2026-11-12: unverified 1.a no duplicate search done (Search-Workshop, ask Virginie first)"
+  - "2026-11-12: defect 1.d silent licence: add (unofficial) to About name and README title, UNOFFICIAL paragraph at top of description"
+  - "2026-11-12: defect 1.f/1.i origin added, but remote history (one Initialise commit) is unrelated to local history: decide merge or replace, then push"
+  - "2026-11-12: unverified 1.g LICENSE is MIT (c) Nelim over third-party content with silent licence: check against 1.b"
+  - "2026-11-12: unverified never seen running"
+protocols_read_sha: 43141970cc4343ff3dc2f3d79e5c3f5f9eed1922
+updated: 2026-11-12
 ---
 
 # Simple FX: Smoke Patches Renew — status
