@@ -22,6 +22,7 @@ remaining:
   - "2026-11-12: unverified 4.d packageIds scpchemfuel.appliances, CiXwOw.HelixienBrazier, Owlchemist.WallUtilities not found among installed mods, cannot be checked locally"
   - "2026-11-12: unverified 7.d Pickle suite written for S1 and S5 only (Tests/Pickle, steps resolve); S2 to S4, S6 to S10, S12 and the 8 billsOnly buildings wait for a mod set and a bill step"
   - "2026-11-12: unverified 7.b 12 of 20 patch operations skipped by Check-PatchTargets (target mods not installed), proven only in game"
+  - "2026-11-12: ticket 20261112-094324-452-217b pending (01-loading, DepMap wsl-deps.sans-facultatifs.map, first play of the comp step; owner = this session, TM registered it). Next: read summary.json and junit.xml, then file the integration pass (-DepMap wsl-deps.avec-integration.map, features 03). PiT: the burns step is in the StageDecor working tree, not committed or played; Dubs id missing for BurnPit; Appliances, Helixien, Wall, VFE Core, VFE Production not installed (Virginie subscribes), billsOnly needs a bill step"
   - "2026-11-12: unverified never seen running"
 protocols_read_sha: c32984627d179fee6df20ce79bf3a883253e2511
 updated: 2026-11-12
