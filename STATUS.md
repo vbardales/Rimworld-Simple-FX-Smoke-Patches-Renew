@@ -5,11 +5,11 @@ repo: Rimworld-Simple-FX-Smoke-Patches-Renew
 remote: https://github.com/vbardales/Rimworld-Simple-FX-Smoke-Patches-Renew.git
 visibility: public
 detached: no
-workflow_stage: settings[1.0.0]
+workflow_stage: localize[1.0.0]
 licence: silent
 licence_at: "2026-09-12: no licence at the four places one could be (files, About.xml, url, Steam description); source dead since 1.5"
 upstream_mod_remotes: N/A
-settings_audit: unchecked
+settings_audit: not_applicable
 localization: unchecked
 translation_en: unchecked
 translation_fr: unchecked
@@ -58,3 +58,10 @@ Workshop item 3811405107 was prepublished as 0.1.0 (owner, 2026-11-12): item cre
 - DLC: Royalty and Ideology, in `loadAfter`; their patches are conditional on the def.
 - Incompatible: `MysticFelines.SimpleFX.Smoke2.Patches` (the original mod).
 - Required items on the Steam page: n/a, not released yet (AUDIT.md 4.g).
+
+## Settings audit (2026-11-12, revision 917cf5f)
+
+- Files read: `Mod/` holds `About/About.xml`, six patch files in `Patches/`, `ATTRIBUTION.md` and `LICENSE`. No assembly, no source, no `Defs/`, no `Languages/`; no `MainButtonDef` and no settings class anywhere.
+- Inventory: the mod only adds Simple FX: Smoke's `Flecker.CompProperties_Smoker` comp to existing buildings, with the values of the original mod. Player-facing smoke options (amount, size, indoor form) belong to Simple FX: Smoke, which this mod requires, and the added comps obey them. Nothing here is configurable in a way a player would use.
+- Decision: no settings. Verified absence of a settings page and of a MainButtons shortcut, so there is no empty page and no shortcut to hide.
+- Result: `not_applicable`. Nothing to test in game for settings; the in-game run stays in `remaining` as `unverified`.
