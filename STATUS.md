@@ -46,3 +46,5 @@ holds this mod:
 `licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source,
 `alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
 to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.
+
+Workshop item 3811405107 was prepublished as 0.1.0 (owner, 2026-11-12): item created, `About/PublishedFileId.txt` committed, junction mounted in `RimWorld/Mods/`. Version 1.0.0 is not yet released, so `published` stays `no`.
