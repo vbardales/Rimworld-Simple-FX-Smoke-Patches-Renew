@@ -5,14 +5,14 @@ repo: Rimworld-Simple-FX-Smoke-Patches-Renew
 remote: https://github.com/vbardales/Rimworld-Simple-FX-Smoke-Patches-Renew.git
 visibility: public
 detached: no
-workflow_stage: localize[1.0.0]
+workflow_stage: writeTests[1.0.0]
 licence: silent
 licence_at: "2026-09-12: no licence at the four places one could be (files, About.xml, url, Steam description); source dead since 1.5"
 upstream_mod_remotes: N/A
 settings_audit: not_applicable
-localization: unchecked
-translation_en: unchecked
-translation_fr: unchecked
+localization: not_applicable
+translation_en: not_applicable
+translation_fr: not_applicable
 dependencies: declared
 workshop: 3811405107
 published: no
@@ -65,3 +65,9 @@ Workshop item 3811405107 was prepublished as 0.1.0 (owner, 2026-11-12): item cre
 - Inventory: the mod only adds Simple FX: Smoke's `Flecker.CompProperties_Smoker` comp to existing buildings, with the values of the original mod. Player-facing smoke options (amount, size, indoor form) belong to Simple FX: Smoke, which this mod requires, and the added comps obey them. Nothing here is configurable in a way a player would use.
 - Decision: no settings. Verified absence of a settings page and of a MainButtons shortcut, so there is no empty page and no shortcut to hide.
 - Result: `not_applicable`. Nothing to test in game for settings; the in-game run stays in `remaining` as `unverified`.
+
+## Translation audit (2026-11-12, revision 442ab21)
+
+- Inventory (6.a): the mod displays no text to the player in game. `Mod/` has no assembly, no `Keyed`, no `Defs/`, no `Languages/`; the six patches only add a particle comp (`Flecker.CompProperties_Smoker`) to existing buildings. The only texts are the About name and description, published on the Steam page, in English.
+- Result: `localization`, `translation_en` and `translation_fr` are `not_applicable`: nothing to make localizable, nothing to cover, no French to agree or to review. `Check-Translations.ps1`: PASS, 0 source texts.
+- ChatGPT review (6.g): `/review-translation` run, page 1 of 1, no correction recommended; nothing refused, so no `Docs/review-refusals.md`. `TRANSLATION_REVIEW.md` regenerated (revision 872683c). Review by Virginie: not due, no displayed text.
