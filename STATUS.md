@@ -20,6 +20,8 @@ workshop_required_items: n/a, not released yet
 tested_on: never
 remaining:
   - "2026-11-12: unverified 4.d packageIds scpchemfuel.appliances, CiXwOw.HelixienBrazier, Owlchemist.WallUtilities not found among installed mods, cannot be checked locally"
+  - "2026-11-12: unverified 7.d no Pickle suite written: needs a step to check a def comp in game and a capture of the smoke, to ask NPT"
+  - "2026-11-12: unverified 7.b 12 of 20 patch operations skipped by Check-PatchTargets (target mods not installed), proven only in game"
   - "2026-11-12: unverified never seen running"
 protocols_read_sha: c32984627d179fee6df20ce79bf3a883253e2511
 updated: 2026-11-12
@@ -71,3 +73,9 @@ Workshop item 3811405107 was prepublished as 0.1.0 (owner, 2026-11-12): item cre
 - Inventory (6.a): the mod displays no text to the player in game. `Mod/` has no assembly, no `Keyed`, no `Defs/`, no `Languages/`; the six patches only add a particle comp (`Flecker.CompProperties_Smoker`) to existing buildings. The only texts are the About name and description, published on the Steam page, in English.
 - Result: `localization`, `translation_en` and `translation_fr` are `not_applicable`: nothing to make localizable, nothing to cover, no French to agree or to review. `Check-Translations.ps1`: PASS, 0 source texts.
 - ChatGPT review (6.g): `/review-translation` run, page 1 of 1, no correction recommended; nothing refused, so no `Docs/review-refusals.md`. `TRANSLATION_REVIEW.md` regenerated (revision 872683c). Review by Virginie: not due, no displayed text.
+
+## Tests (2026-11-12, revision e4a233c)
+
+- `TESTING.md` (7.a): 13 scenarios, one per promised behavior of the description (20 buildings in six groups, silent stand-down, no double comp, safe to add and remove).
+- Offline (7.b, 7.c): `Run-OfflineChecks.ps1` 10 of 10 green, `Check-PatchGuards.ps1` 0 error, `Check-OptionalCompat.ps1` OK. No unit-test project: the mod has no code (7.e). No local script, so no row in `LOCAL_SCRIPTS.md`.
+- Pickle (7.d): not written yet, see `remaining`.
