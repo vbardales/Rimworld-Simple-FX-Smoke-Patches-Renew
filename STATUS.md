@@ -20,7 +20,7 @@ workshop_required_items: n/a, not released yet
 tested_on: never
 remaining:
   - "2026-11-12: unverified 4.d packageIds scpchemfuel.appliances, CiXwOw.HelixienBrazier, Owlchemist.WallUtilities not found among installed mods, cannot be checked locally"
-  - "2026-11-12: unverified 7.d no Pickle suite written: needs a step to check a def comp in game and a capture of the smoke, to ask NPT"
+  - "2026-11-12: unverified 7.d Pickle suite written for S1 and S5 only (Tests/Pickle, steps resolve); S2 to S4, S6 to S10, S12 and the 8 billsOnly buildings wait for a mod set and a bill step"
   - "2026-11-12: unverified 7.b 12 of 20 patch operations skipped by Check-PatchTargets (target mods not installed), proven only in game"
   - "2026-11-12: unverified never seen running"
 protocols_read_sha: c32984627d179fee6df20ce79bf3a883253e2511

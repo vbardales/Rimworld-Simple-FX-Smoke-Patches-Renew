@@ -1,0 +1,7 @@
+# Minimal pass of Simple FX: Smoke Patches Renew: the PickleTools packages whose steps the features use.
+# Simple FX: Smoke Continued (Owlchemist.SimpleFX.Smoke2, Workshop 3261314247) is a hard dependency of the mod,
+# so the staging copies it.
+nelim.pickletools.deffields path:PickleTools/DefFieldSteps/Mod
+nelim.pickletools.camerazoom path:PickleTools/CameraZoom/Mod
+nelim.pickletools.soundcapture path:PickleTools/SoundCapture/Mod
+nelim.pickletools.stagedecor path:PickleTools/StageDecor/Mod
