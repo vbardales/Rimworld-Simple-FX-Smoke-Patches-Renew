@@ -19,12 +19,13 @@ published: no
 workshop_required_items: n/a, not released yet
 tested_on: never
 remaining:
-  - "2026-11-12: unverified 4.d packageIds scpchemfuel.appliances, CiXwOw.HelixienBrazier, Owlchemist.WallUtilities not found among installed mods, cannot be checked locally"
+  - "2026-11-12: 4.d packageIds scpchemfuel.appliances, CiXwOw.HelixienBrazier, Owlchemist.WallUtilities now read from the Steam workshop About.xml (2869098359, 2770815124, 2565545335), match the patches; Wall has no 1.6 folder, load unverified in game"
   - "2026-11-12: unverified 7.d Pickle suite written for S1 and S5 only (Tests/Pickle, steps resolve); S2 to S4, S6 to S10, S12 and the 8 billsOnly buildings wait for a mod set and a bill step"
   - "2026-11-12: unverified 7.b 12 of 20 patch operations skipped by Check-PatchTargets (target mods not installed), proven only in game"
-  - "2026-11-12: ticket 20261112-094324-452-217b pending (01-loading, DepMap wsl-deps.sans-facultatifs.map, first play of the comp step; owner = this session, TM registered it). Next: read summary.json and junit.xml, then file the integration pass (-DepMap wsl-deps.avec-integration.map, features 03). PiT: the burns step is in the StageDecor working tree, not committed or played; Dubs id missing for BurnPit; Appliances, Helixien, Wall, VFE Core, VFE Production not installed (Virginie subscribes), billsOnly needs a bill step"
+  - "2026-11-12: ticket 20261112-094324-452-217b pending (01-loading, DepMap wsl-deps.sans-facultatifs.map, first play of the comp step; owner = this session, TM registered it). Next: read summary.json and junit.xml, then file the integration pass (-DepMap wsl-deps.avec-integration.map, features 03). PiT: the burns step is in the StageDecor working tree, not committed or played; Dubs 836308268, Appliances, Helixien (+ Vanilla Helixien Gas 2877699803), Wall, VFE Production now on disk and in wsl-deps.avec-integration.map (uncommitted); billsOnly uses the existing NPT step `has the bill` (recipes unverified, first play decides)"
+  - "2026-11-12: Tests/Pickle/Inbox created by hand (empty, untracked); Audit asked to add its creation as a protocol step, answer pending"
   - "2026-11-12: unverified never seen running"
-protocols_read_sha: c32984627d179fee6df20ce79bf3a883253e2511
+protocols_read_sha: adb5c944a9c44650eb68512404877dc2c09dfa34
 updated: 2026-11-12
 ---
 

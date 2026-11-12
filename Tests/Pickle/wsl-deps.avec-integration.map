@@ -1,10 +1,16 @@
-# Integration pass of Simple FX: Smoke Patches Renew: the two Vanilla Factions Expanded mods that are installed, with their
-# framework first (Core, Workshop 2023507013; ids read from each About.xml, 2026-11-12), then the PickleTools packages.
-# Not here: Dubs Bad Hygiene (Workshop id not read yet), Appliances Expanded, Helixien Gas Brazier, Simple Utilities: Wall,
-# Vanilla Expanded Framework, VFE Production (not installed on this machine, Steam subscriptions are Virginie's).
+# Integration pass of Simple FX: Smoke Patches Renew: the optional mods, each framework before the mod that needs it
+# (ids read from each About.xml and from the Steam workshop folder, 2026-11-12), then the PickleTools packages.
+# Harmony is staged by stage-pickle-wsl.sh from each About.xml, so it is not listed.
+# Simple Utilities: Wall ships 1.3 and 1.4 and Common only, no 1.6 folder: watch the 01-loading result for it.
 OskarPotocki.VanillaFactionsExpanded.Core 2023507013
 OskarPotocki.VFE.Classical 2787850474
 OskarPotocki.VFE.Medieval2 3444347874
+Dubwise.DubsBadHygiene 836308268
+scpchemfuel.appliances 2869098359
+VanillaExpanded.HelixienGas 2877699803
+CiXwOw.HelixienBrazier 2770815124
+Owlchemist.WallUtilities 2565545335
+VanillaExpanded.VFEProduction 1880253632
 nelim.pickletools.deffields path:PickleTools/DefFieldSteps/Mod
 nelim.pickletools.camerazoom path:PickleTools/CameraZoom/Mod
 nelim.pickletools.soundcapture path:PickleTools/SoundCapture/Mod
