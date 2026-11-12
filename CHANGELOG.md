@@ -2,6 +2,17 @@
 
 All notable changes to this mod are documented here.
 
+## [Unreleased]
+
+### Changed
+
+- The mod is marked unofficial, as its source has no licence: ` (unofficial)` after the name,
+  an UNOFFICIAL paragraph at the top of the description, and the same suffix in the README title.
+- New mod icon and preview image.
+- The description ends with a link to the source code.
+
+No patch and no value changed: the smoke on every building is exactly what 1.0.0 gives.
+
 ## [1.0.0] — 2026-09-06
 
 First release. Port of MysticFelines' **Simple FX: Smoke Patches** to RimWorld 1.6.
