@@ -5,7 +5,7 @@ repo: Rimworld-Simple-FX-Smoke-Patches-Renew
 remote: https://github.com/vbardales/Rimworld-Simple-FX-Smoke-Patches-Renew.git
 visibility: public
 detached: no
-workflow_stage: setupRepo
+workflow_stage: makeSources
 licence: silent
 licence_at: "2026-09-12: no licence at the four places one could be (files, About.xml, url, Steam description); source dead since 1.5"
 upstream_mod_remotes: N/A
@@ -18,9 +18,8 @@ workshop: 3811405107
 published: no
 tested_on: never
 remaining:
-  - "2026-11-12: unverified 1.g LICENSE is MIT (c) Nelim over third-party content with silent licence: check against 1.b"
   - "2026-11-12: unverified never seen running"
-protocols_read_sha: 43141970cc4343ff3dc2f3d79e5c3f5f9eed1922
+protocols_read_sha: 29edd8b857cf7ee4b139cc7ac70fcb8d90c11238
 updated: 2026-11-12
 ---
 
