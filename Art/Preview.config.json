@@ -8,7 +8,7 @@
     "description": "Smoke and steam for the buildings the original effect does not reach."
   },
   "background": { "file": "Preview-source.png" },
-  "echo": { "file": "echo.png" },
+  "echo": { "file": "echo-source.png" },
   "icon": { "file": "ModIcon-source.png" },
   "palette": {
     "veil": "#292C2E",

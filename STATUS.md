@@ -26,7 +26,7 @@ remaining:
   - "2026-11-12: integration hearth smokes GREEN 1/1 (ticket e556, after NPT CameraZoom widened sizeRange to 2..130; 52f2 had failed on camera root size 11). Proof in Tests/Pickle/Evidence/integration-hearth. Next: S2-S4, S6-S10, billsOnly"
   - "2026-11-12: Tests/Pickle/Inbox created by hand (empty, untracked); Audit confirmed (AUDIT.md 7.d): mkdir -p Inbox, no .gitkeep, no Parked"
   - "2026-11-12: unverified never seen running"
-protocols_read_sha: adb5c944a9c44650eb68512404877dc2c09dfa34
+protocols_read_sha: 853b38de0f5a5558aa6e28078d550dbab5b2e759
 updated: 2026-11-12
 ---
 
